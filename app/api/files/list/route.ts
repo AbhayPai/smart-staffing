@@ -16,8 +16,6 @@ export async function GET() {
     .from("resumes")
     .list();
 
-  console.log("FILES", { data, error });
-
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
