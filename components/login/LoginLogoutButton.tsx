@@ -1,6 +1,6 @@
 // components/LoginButtonWrapper.tsx
-import { createClient } from "@/utils/supabase/server";
-import LoginButtonClient from "@/components/LoginButtonClient";
+import { createClient } from "@/lib/supabase/server";
+import LoginButtonClient from "@/components/login/LoginButtonClient";
 
 export default async function LoginButtonWrapper() {
   const supabase = createClient();

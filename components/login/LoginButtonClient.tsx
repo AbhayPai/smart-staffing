@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { signout } from "@/lib/auth-actions";
 
@@ -24,7 +24,7 @@ export default function LoginButtonClient({ user }: any) {
     <Button
       variant="outline"
       onClick={() => {
-        router.push("/login");
+        router.push("/");
       }}
     >
       Login
