@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils"
-import { redirect } from "next/navigation";
 import Link from "next/link";
 
 import "@/app/globals.css";
-import { createClient } from "@/lib/supabase/server";
 import LoginButton from "@/components/login/LoginLogoutButton";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,17 +18,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const supabase = createClient();
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  // 🚨 PROTECT ROUTE
-  if (!user) {
-    redirect("/");
-  }
-
   return (
     <html lang="en">
       <body className={cn("bg-background", inter.className )}>

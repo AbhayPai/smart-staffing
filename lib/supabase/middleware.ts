@@ -58,6 +58,11 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(new URL('/login', request.url))
   }
 
+  // ✅ If NOT logged in → block protected routes
+  if (!user && pathname.startsWith('/resume-upload')) {
+    return NextResponse.redirect(new URL('/login', request.url))
+  }
+
   // Continue normally
   return response
 }
