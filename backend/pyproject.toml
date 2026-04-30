@@ -1,0 +1,26 @@
+[project]
+name = "smart-staffing-ai-agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.129.0",
+    "ipykernel>=7.1.0",
+    "langchain>=1.2.8",
+    "langchain-community>=0.4.1",
+    "langchain-core>=1.2.8",
+    "langchain-groq>=1.1.2",
+    "langchain-ollama>=1.0.1",
+    "langchain-openai>=1.1.7",
+    "langchain-pinecone>=0.2.13",
+    "langchain-postgres>=0.0.17",
+    "langgraph>=1.0.7",
+    "langgraph-checkpoint-postgres>=3.0.4",
+    "logging>=0.4.9.6",
+    "psycopg>=3.3.2",
+    "psycopg2>=2.9.11",
+    "python-dotenv>=1.2.1",
+    "streamlit>=1.54.0",
+    "transformers>=5.1.0",
+]

@@ -12,7 +12,7 @@ export async function updateSession(request: NextRequest) {
   // Create Supabase client
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    process.env.NEXT_PUBLIC_SUPABASE_SECRET_KEY!,
     {
       cookies: {
         get(name: string) {
@@ -55,12 +55,12 @@ export async function updateSession(request: NextRequest) {
 
   // ✅ If NOT logged in → block protected routes
   if (!user && pathname.startsWith('/dashboard')) {
-    return NextResponse.redirect(new URL('/login', request.url))
+    return NextResponse.redirect(new URL('/', request.url))
   }
 
   // ✅ If NOT logged in → block protected routes
   if (!user && pathname.startsWith('/resume-upload')) {
-    return NextResponse.redirect(new URL('/login', request.url))
+    return NextResponse.redirect(new URL('/', request.url))
   }
 
   // Continue normally
