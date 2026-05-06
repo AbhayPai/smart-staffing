@@ -2,10 +2,8 @@ import logging
 import os
 
 from typing import List
-from dotenv import load_dotenv
 from langchain_core.documents import Document
 from supabase import create_client, Client
-load_dotenv()
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
