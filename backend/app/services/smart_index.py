@@ -10,17 +10,14 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-DIMENSION = int(os.environ.get("DIMENSION", 1024))
-SUPABASE_URL = os.environ.get("SUPABASE_URL")
-SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
-
 
 class SmartIndexing:
-    def __init__(self):
+    def __init__(self, supabase_url: str, supabase_key: str, dimension: int):
         self.supabase: Client = create_client(
-            SUPABASE_URL,
-            SUPABASE_KEY
+            supabase_url,
+            supabase_key
         )
+        self.dimension = dimension
 
     def insert(self, docs: List[Document]):
         if not docs:
@@ -66,9 +63,9 @@ class SmartIndexing:
             if not embedding:
                 raise ValueError("Missing embedding in document metadata")
 
-            if len(embedding) != DIMENSION:
+            if len(embedding) != self.dimension:
                 raise ValueError(
-                    f"Embedding dimension mismatch: {len(embedding)} != {DIMENSION}"
+                    f"Embedding dimension mismatch: {len(embedding)} != {self.dimension}"
                 )
 
             rows.append({

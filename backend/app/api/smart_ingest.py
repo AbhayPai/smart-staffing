@@ -22,6 +22,8 @@ LLM_MODEL = os.getenv("LLM_MODEL", "gpt-4o-mini")
 CHUNK_OVERLAP = int(os.getenv("CHUNK_OVERLAP", 200))
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "text-embedding-3-large")
 DIMENSION = int(os.getenv("DIMENSION", 1024))
+SUPABASE_URL = os.environ.get("SUPABASE_URL")
+SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
 
 # ---------------- LOGGING ---------------- #
 logging.basicConfig(level=logging.INFO)
@@ -40,7 +42,11 @@ processor = SmartChunk(
 )
 
 downloader = SmartDownload()
-indexing = SmartIndexing()
+indexing = SmartIndexing(
+    supabase_url=SUPABASE_URL,
+    supabase_key=SUPABASE_KEY,
+    dimension=DIMENSION
+)
 
 # ---------------- INGESTION ---------------- #
 ingestion_id = str(uuid.uuid4())

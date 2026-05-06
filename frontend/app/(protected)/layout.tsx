@@ -50,6 +50,13 @@ export default async function RootLayout({
               >
                 Resume Upload
               </Link>
+
+              <Link
+                href="/skill-matrix"
+                className="hover:bg-gray-700 p-2 rounded"
+              >
+                Skill Matrix
+              </Link>
             </nav>
           </aside>
 

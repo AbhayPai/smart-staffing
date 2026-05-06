@@ -1,5 +1,10 @@
 ## Smart Staffing Frontend
 
+## Local
+```
+npm run dev
+```
+
 ## Supabase Profiles Table Statement
 ```
 create table
