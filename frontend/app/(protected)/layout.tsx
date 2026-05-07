@@ -57,6 +57,20 @@ export default async function RootLayout({
               >
                 Skill Matrix
               </Link>
+
+              <Link
+                href="/project-upload"
+                className="hover:bg-gray-700 p-2 rounded"
+              >
+                Project upload
+              </Link>
+
+              <Link
+                href="/project-recommendation"
+                className="hover:bg-gray-700 p-2 rounded"
+              >
+                Project Recommendation
+              </Link>
             </nav>
           </aside>
 
