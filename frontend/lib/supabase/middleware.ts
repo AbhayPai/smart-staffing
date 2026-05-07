@@ -63,6 +63,16 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(new URL('/', request.url))
   }
 
+  // ✅ If NOT logged in → block protected routes
+  if (!user && pathname.startsWith('/project-upload')) {
+    return NextResponse.redirect(new URL('/', request.url))
+  }
+
+  // ✅ If NOT logged in → block protected routes
+  if (!user && pathname.startsWith('/project-recommendation')) {
+    return NextResponse.redirect(new URL('/', request.url))
+  }
+
   // Continue normally
   return response
 }
